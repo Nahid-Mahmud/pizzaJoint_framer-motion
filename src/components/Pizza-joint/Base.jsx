@@ -15,10 +15,6 @@ const Base = () => {
     visible: {
       x: 0,
       opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 140,
-      },
     },
   };
 
@@ -33,10 +29,10 @@ const Base = () => {
       // animate={{
       //   x: 0,
       // }}
-      // // transition={{
-      //   type: "spring",
-      //   stiffness: 140,
-      // }}
+      transition={{
+        type: "spring",
+        stiffness: 70,
+      }}
       className="base container"
     >
       <h3>Step 1: Choose Your Base</h3>
