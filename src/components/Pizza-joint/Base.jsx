@@ -31,7 +31,7 @@ const Base = () => {
       // }}
       transition={{
         type: "spring",
-        stiffness: 70,
+        stiffness: 50,
       }}
       className="base container"
     >
