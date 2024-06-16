@@ -27,9 +27,21 @@ const Base = () => {
         {bases.map((base) => {
           let spanClass = pizza.base === base ? "active" : "";
           return (
-            <li key={base} onClick={() => addBase(base)}>
+            <motion.li
+              whileHover={{
+                scale: 1.3,
+                color: "#f8e112",
+                originX: -0.1,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 130,
+              }}
+              key={base}
+              onClick={() => addBase(base)}
+            >
               <span className={spanClass}>{base}</span>
-            </li>
+            </motion.li>
           );
         })}
       </ul>
@@ -54,7 +66,7 @@ const Base = () => {
               whileHover={{
                 scale: 1.1,
                 textShadow: "0px 0px 8px rgb(255,255,255)",
-                boxShadow: "0px 0px 8px rgb(255,255,255)",
+                boxShadow: "0px 5px 8px rgb(255,255,255)",
               }}
               className="hover:font-bold"
             >
