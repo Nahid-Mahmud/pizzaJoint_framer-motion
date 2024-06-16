@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Order = ({}) => {
-  const { pizza } = usePizzaContext();
+  const { pizza, setPizza } = usePizzaContext();
+
+  const resetAllOrder = () => {
+    setPizza({ base: "", toppings: [] });
+  };
+
   return (
     <>
       <div className="container order">
@@ -13,7 +18,7 @@ const Order = ({}) => {
           <div key={topping}>{topping}</div>
         ))}
       </div>
-      <Link to={"/"} className="flex">
+      <Link onClick={resetAllOrder} to={"/"} className="flex">
         <motion.button
           whileHover={{
             scale: 1.1,

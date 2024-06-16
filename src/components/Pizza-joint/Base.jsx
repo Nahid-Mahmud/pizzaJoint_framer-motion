@@ -7,19 +7,36 @@ const Base = () => {
   const bases = ["Classic", "Thin & Crispy", "Thick Crust"];
   const { addBase, pizza } = usePizzaContext();
 
-  return (
-    <motion.div
-      initial={{
-        x: "100vw",
-      }}
-      animate={{
-        x: 0,
-      }}
-      transition={{
+  const BaseVarient = {
+    hidden: {
+      x: "-100vw",
+      opacity: 0,
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
         type: "spring",
         stiffness: 140,
-        delay: 0.5,
-      }}
+      },
+    },
+  };
+
+  return (
+    <motion.div
+      variants={BaseVarient}
+      initial="hidden"
+      animate="visible"
+      // initial={{
+      //   x: "-100vw",
+      // }}
+      // animate={{
+      //   x: 0,
+      // }}
+      // // transition={{
+      //   type: "spring",
+      //   stiffness: 140,
+      // }}
       className="base container"
     >
       <h3>Step 1: Choose Your Base</h3>

@@ -24,6 +24,7 @@ const PizzaContexts = ({ children }) => {
     addBase,
     addTopping,
     pizza,
+    setPizza,
   };
   return <PizzaContext.Provider value={pizzaContextsValues}>{children}</PizzaContext.Provider>;
 };
