@@ -1,19 +1,23 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-function template({ rotate, x }) {
-  return `rotate(${rotate}) translateX(${x})`;
-}
 
 const Home = () => {
   return (
-    <div className="home container">
-      <motion.h2 animate={{ scale: 2, color: "white", x: 300, y: 300, transition: { duration: 1 } }}>
+    <motion.div className="home container" animate={{ opacity: [0, 1], transition: { duration: 1,  } }}>
+      <motion.h2
+        animate={{
+          scale: [1, 1.5],
+          transition: {
+            duration: 0.5,
+          },
+        }}
+      >
         Welcome to Pizza Joint
       </motion.h2>
       <Link to="/base">
-        <button>Create Your Pizza</button>
+        <motion.button animate={{}}>Create Your Pizza</motion.button>
       </Link>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,13 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import usePizzaContext from "../../hooks/usePizzaContext";
+import { motion } from "framer-motion";
 
 const Base = () => {
   const bases = ["Classic", "Thin & Crispy", "Thick Crust"];
   const { addBase, pizza } = usePizzaContext();
 
   return (
-    <div className="base container">
+    <motion.div
+      initial={{
+        x: "100vw",
+      }}
+      animate={{
+        x: 0,
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 140,
+        delay: 0.5,
+      }}
+      className="base container"
+    >
       <h3>Step 1: Choose Your Base</h3>
       <ul>
         {bases.map((base) => {
@@ -21,13 +35,35 @@ const Base = () => {
       </ul>
 
       {pizza.base && (
-        <div className="next">
+        <motion.div
+          initial={{
+            x: "-100vw",
+          }}
+          animate={{
+            x: 0,
+          }}
+          transition={{
+            type: "spring",
+            delay: 0.3,
+            stiffness: 140,
+          }}
+          className="next"
+        >
           <Link to="/toppings">
-            <button>Next</button>
+            <motion.button
+              whileHover={{
+                scale: 1.1,
+                textShadow: "0px 0px 8px rgb(255,255,255)",
+                boxShadow: "0px 0px 8px rgb(255,255,255)",
+              }}
+              className="hover:font-bold"
+            >
+              Next
+            </motion.button>
           </Link>
-        </div>
+        </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
